@@ -23,11 +23,8 @@
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
-            <li>
-              <ul role="list" class="-mx-2 space-y-1">
-                <%= SidebarPresenter.new(self).render_items %>
-              </ul>
-            </li>
+            <%= SidebarPresenter.new(self).render_items %>
+          </ul>
             <li class="mt-auto">
               <a href="<%= edit_settings_path %>" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                 <svg class="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">

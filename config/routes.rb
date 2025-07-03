@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  # Root para usuarios normales
   authenticated :user do
-    root 'home#index', as: :authenticated_root
+    root to: 'home#index', as: :authenticated_user_root
   end
 
-  root 'pages#index'
+  # Root para admin users (opcional, ActiveAdmin ya lo maneja)
+  authenticated :admin_user do
+    root to: 'admin/dashboard#index', as: :authenticated_admin_root
+  end
+
+  # Root general
+  root to: 'home#index'
   devise_for :users, skip: [ :registrations, :passwords ], path_names: { sign_in: 'login', sign_out: 'logout' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
