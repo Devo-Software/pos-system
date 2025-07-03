@@ -38,3 +38,4 @@ company_settings = [
 company_settings.each do |setting|
   Setting.set(setting[:var], setting[:value])
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
